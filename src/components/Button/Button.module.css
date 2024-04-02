@@ -1,0 +1,13 @@
+.buttonContainer{
+    border:1px solid #000;
+    display: flex;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.container{ display: flex }
+.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+    cursor:not-allowed;
+}

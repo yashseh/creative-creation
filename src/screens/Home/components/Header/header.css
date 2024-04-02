@@ -1,0 +1,9 @@
+.container{
+width: 50%;
+}
+.headerMain{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
