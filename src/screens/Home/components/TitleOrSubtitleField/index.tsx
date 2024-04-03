@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./titleOrSubtitleField.css";
 import TextInput from "../../../../components/TextInput";
-const TitleOrSubtitleField = () => {
+import { ITitleOrSubtitleFieldProps } from "./types";
+const TitleOrSubtitleField: React.FC<ITitleOrSubtitleFieldProps> = ({
+  getText,
+}) => {
+  const [textValue, updateTextValue] = useState("");
+
+  const onTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateTextValue(e.target.value);
+    getText(e.target.value);
+  };
+
   return (
     <div className="container-main">
       <TextInput
-        value={""}
-        onTextChange={(e) => console.log(e.target.value)}
+        value={textValue}
+        onTextChange={(e) => onTextChange(e)}
         placeholder={"search across title or subtitle"}
         heading={"title / subtitle"}
       />

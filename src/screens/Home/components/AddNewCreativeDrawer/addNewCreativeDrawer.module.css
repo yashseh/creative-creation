@@ -1,14 +1,15 @@
+.titleSec{
+    margin-top: 20px;
+}
 .outerContainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 
 }
-.containerMain{
-    flex:1;
-}
 
 .container{
+  
     margin: 10px 10px 0px 0px;
     justify-content: center;
     position: relative;
@@ -17,10 +18,11 @@
     width: 30px;
     height: 30px;
 }
-.colorHeading{
+
+
+.heading{
     margin:0;
 }
-
 .highlight{
 width:25px;
  height:25px;
