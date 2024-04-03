@@ -35,6 +35,16 @@ const Home = () => {
     updateCreatives(filteredCreatives);
   };
 
+  //filterByTitleOrSubtitle
+  const filterCreativesByTitleOrSubtitle = (text: string) => {
+    let filteredCreatives = globalCreative.filter(
+      (creative) =>
+        creative.title.toLowerCase().includes(text.toLowerCase()) ||
+        creative.subtitle.toLowerCase().includes(text.toLowerCase())
+    );
+    updateCreatives(filteredCreatives);
+  };
+
   //add new creative
   const addNewCreative = (creative: ICreative) => {
     if (creatives.length + 1 <= 5) {
@@ -60,19 +70,19 @@ const Home = () => {
     >
       <Header
         getSelectedColor={(color) => filterCreativesByColor(color)}
-        getFilterText={function (text: string): string {
-          throw new Error("Function not implemented.");
-        }}
+        getFilterText={(text) => filterCreativesByTitleOrSubtitle(text)}
       />
       <ProgressBar
         currentProgress={globalCreative.length}
         totalValue={maxCreative}
       />
-      <Button
-        title="+ Add Creative"
-        onClick={onButtonPress}
-        isDisabled={false}
-      />
+      <div className={styles.button}>
+        <Button
+          title="+ Add Creative"
+          onClick={onButtonPress}
+          isDisabled={false}
+        />
+      </div>
       <AddNewCreativeDrawer
         drawerRef={drawerRef}
         onClick={closeDrawer}

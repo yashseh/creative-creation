@@ -1,9 +1,27 @@
 .container{
-width: 50%;
+width: 60%;
+}
+.filterText{
+    margin: 0;
 }
 .headerMain{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+}
+.colorVie{
+    margin-top: 20px;
+}
+.titleCont{
+      margin-top: 20px;
+  
+}
+@media (max-width: 768px) {
+  .container {
+    width: 80%; 
+  }
+
+  .headerMain {
+    flex-direction: column; 
+  }
 }

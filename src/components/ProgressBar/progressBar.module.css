@@ -1,6 +1,7 @@
 .progressOuter {
  flex:1;
    height: 20px;
+   margin-left: 20px;
   border: 2px solid #000;
   border-radius: 16px;
 }

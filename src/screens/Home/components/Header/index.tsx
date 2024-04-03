@@ -10,10 +10,15 @@ const Header: React.FC<IHeaderProps> = ({
 }) => {
   return (
     <div className="container">
-      <h1>Filter By:</h1>
+      <h1 className="filterText">Filter By:</h1>
+
       <div className="headerMain">
-        <ColorsView onSelectColor={getSelectedColor} title={"Color"} />
-        <TitleOrSubtitleField getText={getFilterText} />
+        <div className="colorVie">
+          <ColorsView onSelectColor={getSelectedColor} title={"Color"} />
+        </div>
+        <div className="titleCont">
+          <TitleOrSubtitleField getText={getFilterText} />
+        </div>
       </div>
     </div>
   );

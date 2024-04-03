@@ -4,16 +4,12 @@ import { IAddNewCreativeDrawerProps } from "./types";
 import TextInput from "../../../../components/TextInput";
 import styles from "./addNewCreativeDrawer.module.css";
 import Button from "../../../../components/Button";
-import { CreativeContext, ICreative } from "../../creativeContext";
-import CreativeCard from "../CreativeCard";
 import ColorsView from "../ColorsView";
 
 const AddNewCreativeDrawer: React.FC<IAddNewCreativeDrawerProps> = ({
   drawerRef,
   doneHandler,
 }) => {
-  const colors = useContext(CreativeContext)?.colors;
-
   const [state, setState] = useState({
     title: "",
     subTitle: "",
@@ -74,6 +70,7 @@ const AddNewCreativeDrawer: React.FC<IAddNewCreativeDrawerProps> = ({
       <div className={styles.titleSec}>
         <ColorsView
           onSelectColor={(color) => handleColorSelection(color)}
+          initialValue={state.backgroundColor}
           title={"Background color"}
         />
       </div>
