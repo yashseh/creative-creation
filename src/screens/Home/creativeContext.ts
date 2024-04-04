@@ -4,7 +4,7 @@ import { IColors } from "./types";
 export const CreativeContext = createContext<ICreativeContext | null>(null);
 
 type ICreativeContext = {
-  colors: IColors;
+  colors: IColors | undefined;
   creatives: ICreative[];
 };
 

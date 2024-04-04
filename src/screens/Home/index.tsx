@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { colors, maxCreative } from "./types";
+import { useEffect, useRef, useState } from "react";
+import { IColors, getColors, maxCreative } from "./types";
 import Header from "./components/Header";
 import ProgressBar from "../../components/ProgressBar";
 import Button from "../../components/Button";
@@ -8,11 +8,26 @@ import { IDrawerMethods } from "../../components/Drawer/types";
 import { CreativeContext, ICreative } from "./creativeContext";
 import CreativeCard from "./components/CreativeCard";
 import styles from "./home.module.css";
-import { log } from "console";
+import axios from "axios";
 const Home = () => {
   const drawerRef = useRef<IDrawerMethods | null>(null);
   const [globalCreative, updateGlobalCreative] = useState<ICreative[]>([]);
+  const [colors, setColors] = useState<IColors>();
   const [creatives, updateCreatives] = useState<ICreative[]>([]);
+
+  //fetch colors
+  const fetchColors = async () => {
+    try {
+      const response = await axios.get(getColors);
+      setColors(response.data.colors);
+    } catch (error) {
+      alert("Failed to fetch colors");
+    }
+  };
+
+  useEffect(() => {
+    fetchColors();
+  }, []);
 
   useEffect(() => {
     updateCreatives(globalCreative);
